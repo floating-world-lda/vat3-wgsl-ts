@@ -1,0 +1,35 @@
+{
+  "description": "FloatingWorld VAT3 helpers for Babylon.js scenes.",
+  "devDependencies": {
+    "@babylonjs/core": "^8.35.0",
+    "@babylonjs/loaders": "^8.35.0",
+    "@types/node": "^22.9.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.3.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "name": "@floatingworld/vat3",
+  "peerDependencies": {
+    "@babylonjs/core": "^8.32.2",
+    "@babylonjs/loaders": "^8.32.2"
+  },
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "version": "0.1.0"
+}

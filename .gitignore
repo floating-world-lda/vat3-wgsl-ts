@@ -1,0 +1,13 @@
+# dependencies
+**/node_modules
+
+# production
+**/dist
+
+# python virtual environments
+**/venv/
+**/__pycache__/
+*.pyc
+
+# misc
+.DS_Store
