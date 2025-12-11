@@ -1,6 +1,5 @@
 // Copyright (c) Floating World, LDA. All Rights Reserved.
 
-
 import type { AssetContainer } from '@babylonjs/core/assetContainer';
 import { Color3 } from '@babylonjs/core/Maths/math.color';
 import { Constants } from '@babylonjs/core/Engines/constants';

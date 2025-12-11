@@ -1,3 +1,5 @@
+// Copyright (c) Floating World, LDA. All Rights Reserved.
+
 import { loadShaderContext, ShaderType } from '../utils/shaders';
 
 import vat3InstancesSource from 'materials/includes/vat3-instances.wgsl?raw';
