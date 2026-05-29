@@ -1,3 +1,5 @@
+// Copyright (c) Floating World, LDA. All Rights Reserved.
+
 import { Vector3 } from '@babylonjs/core/Maths/math.vector';
 
 import { type VatMetadata, VatType, type VatStaticInputs } from './vatTypes';

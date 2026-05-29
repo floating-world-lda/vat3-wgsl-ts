@@ -9,6 +9,8 @@ import ParticleVat from './variants/particlesVat';
 import RigidBodyVat from './variants/rigidBodyVat';
 import DynamicMeshVat from './variants/dynamicMeshVat';
 
+import { isBrowser } from './utils/browser';
+
 export class VAT3 {
   public static create(
     scene: Scene,
@@ -27,6 +29,9 @@ export class VAT3 {
 
       case VatType.Softbody:
         return new SoftBodyVat(scene, vatAssets);
+
+      default:
+        throw new Error(`Invalid VAT type: ${vatType}`);
     }
   }
 
@@ -46,3 +51,8 @@ export class VAT3 {
 
 export { VatType };
 export type { VatAssets };
+
+if (isBrowser) {
+  window.VAT3 = VAT3;
+  window.VatType = VatType;
+}

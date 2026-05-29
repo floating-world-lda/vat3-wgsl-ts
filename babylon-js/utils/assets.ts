@@ -1,3 +1,5 @@
+// Copyright (c) Floating World, LDA. All Rights Reserved.
+
 import { AssetContainer } from '@babylonjs/core/assetContainer';
 import { Engine } from '@babylonjs/core/Engines/engine';
 import { LoadAssetContainerAsync } from '@babylonjs/core/Loading/sceneLoader';

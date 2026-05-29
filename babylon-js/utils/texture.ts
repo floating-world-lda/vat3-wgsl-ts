@@ -1,3 +1,5 @@
+// Copyright (c) Floating World, LDA. All Rights Reserved.
+
 import { RawTexture } from '@babylonjs/core/Materials/Textures/rawTexture';
 import type { Scene } from '@babylonjs/core/scene';
 import { Texture } from '@babylonjs/core/Materials/Textures/texture';

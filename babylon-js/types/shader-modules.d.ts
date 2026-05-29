@@ -1,3 +1,5 @@
+// Copyright (c) Floating World, LDA. All Rights Reserved.
+
 declare module '*.wgsl' {
   const source: string
   export default source

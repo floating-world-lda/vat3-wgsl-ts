@@ -1,3 +1,5 @@
+// Copyright (c) Floating World, LDA. All Rights Reserved.
+
 import type { AbstractEngine } from '@babylonjs/core/Engines/abstractEngine';
 import { ShaderStore } from '@babylonjs/core/Engines/shaderStore';
 import { Color3, Color4 } from '@babylonjs/core/Maths/math.color';
