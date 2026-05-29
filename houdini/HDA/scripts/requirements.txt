@@ -1,6 +1,0 @@
-numpy
-OpenEXR
-Imath
-pygltflib
-scipy
-pillow
