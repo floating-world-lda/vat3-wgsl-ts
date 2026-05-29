@@ -1,0 +1,19 @@
+[
+  {
+    "Axis System": "Right-Handed Y-Up",
+    "Bound Max X": 0.08679145574569702,
+    "Bound Max Y": 0.09601008892059326,
+    "Bound Max Z": 0.19171923398971558,
+    "Bound Min X": -0.11384940147399902,
+    "Bound Min Y": -0.1513814926147461,
+    "Bound Min Z": -0.3624519109725952,
+    "Frame Count": 30,
+    "Houdini FPS": 30.0,
+    "Name": "flag_HDR",
+    "Spare Color Texture": 0,
+    "Two Position Textures": 0,
+    "Use HDR Textures": 0,
+    "VAT Type": "Softbody",
+    "Vertex Count": 8
+  }
+]
