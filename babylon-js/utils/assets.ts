@@ -10,19 +10,24 @@ import '@babylonjs/loaders/glTF';
 import '@babylonjs/core/Materials/Textures/Loaders/ddsTextureLoader';
 import '@babylonjs/core/Materials/Textures/Loaders/ktxTextureLoader';
 
+const toAbsoluteUrl = (filePath: string): string => {
+  if (/^https?:\/\//.test(filePath)) {
+    return filePath;
+  }
+
+  return `${window.location.origin}${filePath.startsWith('/') ? '' : '/'}${filePath}`;
+};
+
 export const loadAssetContainer = async (
   filePath: string,
-  scene: Scene,
-  isLocalPath = true
+  scene: Scene
 ): Promise<AssetContainer> => {
-  const fullUrl = isLocalPath
-    ? `${window.location.protocol}//${window.location.host}${filePath}`
-    : filePath;
+  const fullUrl = toAbsoluteUrl(filePath);
 
   try {
     return await LoadAssetContainerAsync(fullUrl, scene);
   } catch (error) {
-    console.error(`Failed to load asset container from ${filePath}:`, error);
+    console.error(`Failed to load asset container from ${fullUrl}:`, error);
     throw error;
   }
 };
