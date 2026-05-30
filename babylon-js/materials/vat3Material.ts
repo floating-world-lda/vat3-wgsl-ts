@@ -32,7 +32,7 @@ export default abstract class VatMaterial extends MaterialPluginBase {
   ) {
     super(material, name, 5, {});
 
-    this.isEnabled = true;
+    // this.isEnabled = true;
   }
 
   public get isEnabled(): boolean {
@@ -44,7 +44,7 @@ export default abstract class VatMaterial extends MaterialPluginBase {
     this._enable(this._isEnabled);
 
     queueMicrotask(() => {
-      // this.markAllDefinesAsDirty();
+      this.markAllDefinesAsDirty();
     });
   }
 

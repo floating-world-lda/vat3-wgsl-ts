@@ -15,7 +15,7 @@ export default class DynamicMeshVat extends VatBase {
   ): PBRMaterial {
     const material = this.createPBRMaterial();
 
-    new Vat3DynamicMeshMaterial(
+    this._vatPlugin = new Vat3DynamicMeshMaterial(
       this.name,
       material,
       this.bufferManager,

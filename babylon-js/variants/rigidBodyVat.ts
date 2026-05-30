@@ -15,7 +15,7 @@ export default class RigidBodyVat extends VatBase {
   ): PBRMaterial {
     const material = this.createPBRMaterial();
 
-    new Vat3RigidBodyMaterial(
+    this._vatPlugin = new Vat3RigidBodyMaterial(
       this.name,
       material,
       this.bufferManager,

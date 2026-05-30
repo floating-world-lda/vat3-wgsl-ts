@@ -15,7 +15,7 @@ export default class SoftbodyVat extends VatBase {
   ): PBRMaterial {
     const material = this.createPBRMaterial();
 
-    const vatMaterial = new Vat3SoftbodyMaterial(
+    this._vatPlugin = new Vat3SoftbodyMaterial(
       this.name,
       material,
       this.bufferManager,

@@ -31,6 +31,8 @@ import {
   VAT_TEXTURE_KEYS,
 } from './vatTypes';
 
+import type VatMaterial from '../materials/vat3Material';
+
 import VatBufferManager from './vatBufferManager';
 import VatDataManager from './vatDataManager';
 import VatMetadataProcessor from './vatMetadataProcessor';
@@ -58,6 +60,7 @@ export default abstract class VatBase {
   };
 
   protected _isEnabled: boolean = true;
+  protected _vatPlugin?: VatMaterial;
 
   constructor(
     public readonly scene: Scene,
@@ -97,6 +100,7 @@ export default abstract class VatBase {
     this._isEnabled = enabled;
     this._dynamicInputs.enablePlayback = enabled;
     this._dynamicInputs.time = 0;
+    this._vatPlugin && (this._vatPlugin.isEnabled = enabled);
     this.mesh.isVisible = enabled;
   }
 
