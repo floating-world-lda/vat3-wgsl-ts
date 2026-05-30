@@ -1,5 +1,5 @@
 var vat = document.createElement("script");
-vat.src = "https://api.floatingworld.pt/public/vat3-babylonjs/0.1.6/index.js";
+vat.src = "https://api.floatingworld.pt/public/vat3-babylonjs/0.1.7/index.js";
 vat.type = "module";
 document.head.appendChild(vat);
 
@@ -41,9 +41,27 @@ GPUDevice.prototype.createRenderPipeline = function(desc) {
         });
     }
 
-    console.log("🔥 PIPELINE DESC:", JSON.parse(JSON.stringify(desc, (_, v) =>
-    typeof v === "bigint" ? v.toString() : v
-    )));
+    console.log("EFFECT READY CHECK", {
+      effect: !!desc?.vertex?.module,
+      buffers: desc?.vertex?.buffers?.map(b => ({
+        stride: b.arrayStride,
+        attrs: b.attributes?.length
+      }))
+    });
+
+    desc.vertex.buffers?.forEach((b, i) => {
+        if (b.arrayStride == null) {
+            console.error("❌ MISSING arrayStride", i, b);
+            console.trace();
+        }
+    });
+
+    for (const [i, b] of (desc.vertex?.buffers ?? []).entries()) {
+      if (b.arrayStride == null) {
+        console.error("❌ INVALID BUFFER DETECTED", i, b);
+        console.trace();
+      }
+    }
 
     if (desc.vertex?.buffers) {
         console.log("🔥 VERTEX BUFFERS:", desc.vertex.buffers);
@@ -51,6 +69,13 @@ GPUDevice.prototype.createRenderPipeline = function(desc) {
 
     return originalPipeline.call(this, desc);
 };
+
+const originalGetPipeline = BABYLON.WebGPUCacheRenderPipeline.prototype.getRenderPipeline;
+
+// BABYLON.WebGPUCacheRenderPipeline.prototype.getRenderPipeline = function(...args) {
+//     console.log("🔥 GET PIPELINE INPUT:", ...args);
+//     return originalGetPipeline.apply(this, args);
+// };
 
 export const createScene = function () {
     engine.disableUniformBuffers = true;
@@ -93,6 +118,18 @@ export const createScene = function () {
         ;
         loadedMesh.disableAttributeOptimization = true;
 
+        console.log("🔥 REAL VERTEX BUFFERS:");
+
+        const vbs = loadedMesh.getVertexBuffers?.();
+        for (const key in vbs) {
+            const vb = vbs[key];
+            console.log(key, {
+                kind: vb.getKind?.(),
+                stride: vb.getStride?.(),
+                size: vb.getBuffer?.()?.byteLength
+            });
+        }
+
         const hdrSoftbody = VAT3.create(
             scene,
             hdrAssets,
@@ -125,6 +162,8 @@ export const createScene = function () {
         const effect = material.getEffect();
         console.log("EFFECT:", effect);
         
+        console.log(effect?.getAttributes());
+
         console.log("ATTRIBUTES:", effect?._attributes);
         console.log("INPUTS:", effect?._vertexDeclaration);
         console.log("VERTEX STRIDE:", effect?._vertexStride);

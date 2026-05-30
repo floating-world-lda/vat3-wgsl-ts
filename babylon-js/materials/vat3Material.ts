@@ -32,7 +32,7 @@ export default abstract class VatMaterial extends MaterialPluginBase {
   ) {
     super(material, name, 5, {});
 
-    // this.isEnabled = true;
+    this.isEnabled = true;
   }
 
   public get isEnabled(): boolean {
@@ -40,12 +40,15 @@ export default abstract class VatMaterial extends MaterialPluginBase {
   }
 
   public set isEnabled(enabled: boolean) {
-    this._isEnabled = enabled;
-    this._enable(this._isEnabled);
-
-    queueMicrotask(() => {
+    if (enabled) {
+      console.log("ENABLE START", performance.now());
+      this._enable(true);
+      //
       this.markAllDefinesAsDirty();
-    });
+      console.log("ENABLE END", performance.now());
+    } else {
+      this._enable(false);
+    }
   }
 
   public bindForSubMesh(
