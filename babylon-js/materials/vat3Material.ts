@@ -44,7 +44,7 @@ export default abstract class VatMaterial extends MaterialPluginBase {
     this._enable(this._isEnabled);
 
     queueMicrotask(() => {
-      this.markAllDefinesAsDirty();
+      // this.markAllDefinesAsDirty();
     });
   }
 

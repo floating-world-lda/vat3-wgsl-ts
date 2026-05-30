@@ -91,6 +91,8 @@ export const createScene = function () {
         const loadedMesh = hdrAssets.mesh;
         console.log("BASE VERTEX BUFFERS:", loadedMesh.getVerticesDataNames?.())
         ;
+        loadedMesh.disableAttributeOptimization = true;
+
         const hdrSoftbody = VAT3.create(
             scene,
             hdrAssets,
@@ -98,6 +100,8 @@ export const createScene = function () {
         )
 
         const mesh = hdrSoftbody.mesh;
+        const material = hdrSoftbody.material;
+        material.disableAttributeOptimization = true;
 
         console.log("MESH", mesh.name);
 
@@ -118,7 +122,6 @@ export const createScene = function () {
           });
         }
 
-        const material = mesh.material;
         const effect = material.getEffect();
         console.log("EFFECT:", effect);
         
