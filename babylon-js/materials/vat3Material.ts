@@ -41,8 +41,11 @@ export default abstract class VatMaterial extends MaterialPluginBase {
 
   public set isEnabled(enabled: boolean) {
     this._isEnabled = enabled;
-    this.markAllDefinesAsDirty();
     this._enable(this._isEnabled);
+
+    queueMicrotask(() => {
+      this.markAllDefinesAsDirty();
+    });
   }
 
   public bindForSubMesh(
@@ -51,7 +54,7 @@ export default abstract class VatMaterial extends MaterialPluginBase {
     engine: WebGPUEngine,
     _subMesh: SubMesh
   ): void {
-    if (!this.isEnabled) return;
+    if (!this._isEnabled) return;
 
     Object.entries(this._textures).forEach(([textureName, { texture }]) => {
       uniformBuffer.setTexture(`${textureName}`, texture);
