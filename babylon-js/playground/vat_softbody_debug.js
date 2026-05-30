@@ -1,5 +1,5 @@
 var vat = document.createElement("script");
-vat.src = "https://api.floatingworld.pt/public/vat3-babylonjs/0.1.3/index.js";
+vat.src = "https://api.floatingworld.pt/public/vat3-babylonjs/0.1.6/index.js";
 vat.type = "module";
 document.head.appendChild(vat);
 
