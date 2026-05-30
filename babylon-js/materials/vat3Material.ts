@@ -63,16 +63,16 @@ export default abstract class VatMaterial extends MaterialPluginBase {
       uniformBuffer.setTexture(`${textureName}`, texture);
     });
 
-    engine.bindUniformBufferBase(
-      this._bufferManager.getDynamicInputsBuffer().getBuffer()!,
-      0, // not used in webgpu
-      'vat3DynamicInputs'
-    );
-    engine.bindUniformBufferBase(
-      this._bufferManager.getStaticInputsBuffer().getBuffer()!,
-      666,
-      'vat3StaticInputs'
-    );
+    // engine.bindUniformBufferBase(
+    //   this._bufferManager.getDynamicInputsBuffer().getBuffer()!,
+    //   0, // not used in webgpu
+    //   'vat3DynamicInputs'
+    // );
+    // engine.bindUniformBufferBase(
+    //   this._bufferManager.getStaticInputsBuffer().getBuffer()!,
+    //   666,
+    //   'vat3StaticInputs'
+    // );
   }
 
   public isCompatible(shaderLanguage: ShaderLanguage): boolean {
