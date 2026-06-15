@@ -2,6 +2,8 @@ import type { Scene } from '@babylonjs/core/scene';
 
 import type { NovaConfig } from '@floatingworld/nova-babylonjs';
 
+import { isBrowser } from './utils/browser';
+
 import VatBase from './core/vatBase';
 import VatGlobalConfiguration from './core/vatGlobalConfiguration';
 import { type VatAssets, VatType } from './core/vatTypes';
@@ -57,3 +59,8 @@ export class VAT3 {
 export type { VatAssets };
 export { VatGlobalConfiguration };
 export { VatType };
+
+if (isBrowser) {
+  window.VAT3 = VAT3;
+  window.VatType = VatType;
+}

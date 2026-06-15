@@ -28,18 +28,14 @@
     "@babylonjs/core": "^9.10.1",
     "@babylonjs/loaders": "^9.10.1"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "vite build",
     "clean": "rm -rf dist",
     "deploy": "./bin/aws_deploy_api.sh",
-    "publish:dry": "npm run build && npm publish --dry-run",
     "release:patch": "./bin/git_release_version.sh patch",
     "release:minor": "./bin/git_release_version.sh minor",
     "release:major": "./bin/git_release_version.sh major",
-    "release": "npm run typecheck && npm run build && npm run deploy && npm publish",
+    "release": "npm run typecheck && npm run build && npm run deploy",
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": [
