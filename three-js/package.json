@@ -1,0 +1,45 @@
+{
+  "description": "Houdini Vertex Animation Texture classes for Three.js",
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/three": "^0.175.0",
+    "three": "^0.175.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.3.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "name": "@floatingworld/vat3-threejs",
+  "peerDependencies": {
+    "three": "^0.175.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vite build",
+    "clean": "rm -rf dist",
+    "deploy": "./bin/aws_deploy_api.sh",
+    "publish:dry": "npm run build && npm publish --dry-run",
+    "release:patch": "./bin/git_release_version.sh patch",
+    "release:minor": "./bin/git_release_version.sh minor",
+    "release:major": "./bin/git_release_version.sh major",
+    "release": "npm run typecheck && npm run build && npm run deploy && npm publish",
+    "typecheck": "tsc --noEmit"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "version": "0.1.1"
+}

@@ -1,0 +1,10 @@
+
+*.json text eol=lf
+*.py text eol=lf
+*.ts text eol=lf
+*.wgsl text eol=lf
+
+*.hdalc binary
+*.hip binary
+*.hiplc binary
+*.gz binary

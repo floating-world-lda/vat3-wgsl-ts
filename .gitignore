@@ -1,0 +1,20 @@
+# dependencies
+**/node_modules
+
+# private
+**/bin
+
+# production
+**/dist
+
+# python virtual environments
+**/venv/
+**/__pycache__/
+*.pyc
+
+# misc
+.DS_Store
+
+# three-js local dev demo (never committed)
+three-js/demo/
+three-js/vite.demo.config.ts
